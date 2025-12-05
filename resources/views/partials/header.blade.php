@@ -7,8 +7,9 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{{ route('home') }}" class="nav-link px-2 text-white">Главная</a></li>
-          <li><a href="{{ route('feedback.create') }}" class="nav-link px-2 text-white">Оставить отзыв</a></li>
-          <li><a href="{{ route('feedback.index') }}" class="nav-link px-2 text-white">Список отзывов</a></li>
+          <li><a href="{{ route('articles.index') }}" class="nav-link px-2 text-warning">Читать блог</a></li>
+          <li><a href="{{ route('feedback.create') }}" class="nav-link px-2 text-white">Контакты</a></li>
+          <li><a href="{{ route('feedback.index') }}" class="nav-link px-2 text-secondary">Отзывы</a></li>
         </ul>
       </div>
     </div>
