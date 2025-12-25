@@ -18,6 +18,6 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::with(['category', 'tags'])->findOrFail($id);
-        return new ArticleResource($article);
+            return new ArticleResource($article);
     }
 }

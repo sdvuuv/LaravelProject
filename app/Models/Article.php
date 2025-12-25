@@ -12,11 +12,11 @@ class Article extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['title', 'content', 'is_published', 'category_id'];
+    protected $fillable = ['title', 'content', 'is_published', 'published_at', 'category_id'];
 
     protected $casts = [
         'is_published' => 'boolean',
-        'created_at' => 'datetime:Y-m-d H:i',
+        'published_at' => 'datetime', // Важно для работы с датами
     ];
 
 

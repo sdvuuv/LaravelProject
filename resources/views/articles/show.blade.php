@@ -33,17 +33,30 @@
     </div>
 
     <div class="mt-5">
-        <h3>Комментарии ({{ $article->comments->count() }})</h3>
-        
-        @forelse($article->comments as $comment)
+        <h3>Комментарии</h3>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form action="{{ route('articles.comments.store', $article) }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="body" class="form-label">Ваш комментарий</label>
+                        <textarea class="form-control" name="body" id="body" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+        @forelse($article->comments->where('is_approved', true) as $comment)
             <div class="card mb-2">
                 <div class="card-body">
-                    {{ $comment->body }}
-                    <div class="text-muted small mt-1">{{ $comment->created_at->diffForHumans() }}</div>
+                    <p class="mb-1">{{ $comment->body }}</p>
+                    <div class="text-muted small">{{ $comment->created_at->diffForHumans() }}</div>
                 </div>
             </div>
         @empty
-            <p class="text-muted">Комментариев нет</p>
+            <p class="text-muted">Комментариев пока нет.</p>
         @endforelse
     </div>
 </div>

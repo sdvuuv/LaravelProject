@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['body'];
+    protected $fillable = ['body', 'is_approved', 'commentable_id', 'commentable_type'];
 
-    public function commentable()
+    public function scopeApproved($query)
     {
-        return $this->morphTo();
+        return $query->where('is_approved', true);
     }
 }

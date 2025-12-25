@@ -10,6 +10,7 @@
           <li><a href="{{ route('articles.index') }}" class="nav-link px-2 text-warning">Читать блог</a></li>
           <li><a href="{{ route('feedback.create') }}" class="nav-link px-2 text-white">Контакты</a></li>
           <li><a href="{{ route('feedback.index') }}" class="nav-link px-2 text-secondary">Отзывы</a></li>
+          <li><a href="{{ route('admin.comments.index') }}" class="nav-link px-2 text-danger">Модерация</a></li>
         </ul>
       </div>
     </div>

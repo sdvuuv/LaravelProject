@@ -63,7 +63,13 @@
                 {{ old('is_published', $article->is_published) ? 'checked' : '' }}>
             <label class="form-check-label" for="is_published">Опубликовано</label>
         </div>
-
+        <div class="mb-3">
+            <label for="published_at" class="form-label">Дата отложенной публикации</label>
+            {{-- Если редактируем, берем дату из статьи, иначе пусто --}}
+            <input type="datetime-local" class="form-control" id="published_at" name="published_at" 
+                value="{{ old('published_at', isset($article) && $article->published_at ? $article->published_at->format('Y-m-d\TH:i') : '') }}">
+            <div class="form-text">Если не указать, статья будет черновиком до ручной публикации.</div>
+        </div>
         <button type="submit" class="btn btn-primary">Обновить</button>
         <a href="{{ route('articles.index') }}" class="btn btn-secondary">Отмена</a>
     </form>
